@@ -51,7 +51,7 @@ function Navbar() {
           </>
         )}
         {!loading && !user && (
-          <a href="/auth/login" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Login</a>
+          <Link href="/auth/login" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Login</Link>
         )}
       </div>
     </nav>
