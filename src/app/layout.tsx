@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from '../../components/AuthProvider';
 import { supabase } from '../../lib/supabaseClient';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +39,8 @@ function Navbar() {
     }}>
       <div style={{ fontWeight: 700, fontSize: 22, letterSpacing: 1 }}>Resume Tailor</div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-        <a href="/dashboard" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Dashboard</a>
-        <a href="/" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Home</a>
+        <Link href="/dashboard" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Dashboard</Link>
+        <Link href="/" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>Home</Link>
         {!loading && user && (
           <>
             <span style={{ fontSize: 15, opacity: 0.8 }}>{user.email}</span>
