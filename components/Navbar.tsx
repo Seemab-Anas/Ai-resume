@@ -84,8 +84,8 @@ export default function Navbar() {
             }}>
 
               {navLinks.map((link, index) => (
-                <Link key={index} href={link.href} passHref>
-                  <a
+                <Link key={index} href={link.href}>
+                  <span
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -98,24 +98,25 @@ export default function Navbar() {
                       borderRadius: '10px',
                       background: router.pathname === link.href ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
                       border: router.pathname === link.href ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid transparent',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer'
                     }}
                     onMouseEnter={(e) => {
                       if (router.pathname !== link.href) {
-                        (e.target as HTMLAnchorElement).style.color = '#ffffff';
-                        (e.target as HTMLAnchorElement).style.background = 'rgba(255, 255, 255, 0.05)';
+                        (e.target as HTMLSpanElement).style.color = '#ffffff';
+                        (e.target as HTMLSpanElement).style.background = 'rgba(255, 255, 255, 0.05)';
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (router.pathname !== link.href) {
-                        (e.target as HTMLAnchorElement).style.color = 'rgba(255, 255, 255, 0.8)';
-                        (e.target as HTMLAnchorElement).style.background = 'transparent';
+                        (e.target as HTMLSpanElement).style.color = 'rgba(255, 255, 255, 0.8)';
+                        (e.target as HTMLSpanElement).style.background = 'transparent';
                       }
                     }}
                   >
                     <span>{link.icon}</span>
                     {link.label}
-                  </a>
+                  </span>
                 </Link>
               ))}
 
@@ -211,34 +212,36 @@ export default function Navbar() {
                   </>
                 ) : (
                   /* Login Button */
-                  <a
-                    href="/auth/login"
-                    style={{
-                      padding: '12px 24px',
-                      background: 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
-                      color: '#ffffff',
-                      textDecoration: 'none',
-                      borderRadius: '12px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      transition: 'all 0.2s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLAnchorElement).style.transform = 'translateY(-1px)';
-                      (e.target as HTMLAnchorElement).style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLAnchorElement).style.transform = 'translateY(0)';
-                      (e.target as HTMLAnchorElement).style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.3)';
-                    }}
-                  >
-                    <span>🔑</span>
-                    Login
-                  </a>
+                  <Link href="/auth/login">
+                    <span
+                      style={{
+                        padding: '12px 24px',
+                        background: 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        transition: 'all 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)',
+                        cursor: 'pointer'
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLSpanElement).style.transform = 'translateY(-1px)';
+                        (e.target as HTMLSpanElement).style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLSpanElement).style.transform = 'translateY(0)';
+                        (e.target as HTMLSpanElement).style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.3)';
+                      }}
+                    >
+                      <span>🔑</span>
+                      Login
+                    </span>
+                  </Link>
                 )}
               </div>
             )}
@@ -286,28 +289,29 @@ export default function Navbar() {
               margin: '0 auto'
             }}>
               {navLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    color: router.pathname === link.href ? '#8b5cf6' : 'rgba(255, 255, 255, 0.8)',
-                    textDecoration: 'none',
-                    fontSize: '16px',
-                    fontWeight: '500',
-                    padding: '12px 16px',
-                    borderRadius: '12px',
-                    background: router.pathname === link.href ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
-                    border: router.pathname === link.href ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid transparent',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span>{link.icon}</span>
-                  {link.label}
-                </a>
+                <Link key={index} href={link.href}>
+                  <span
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      color: router.pathname === link.href ? '#8b5cf6' : 'rgba(255, 255, 255, 0.8)',
+                      textDecoration: 'none',
+                      fontSize: '16px',
+                      fontWeight: '500',
+                      padding: '12px 16px',
+                      borderRadius: '12px',
+                      background: router.pathname === link.href ? 'rgba(139, 92, 246, 0.1)' : 'transparent',
+                      border: router.pathname === link.href ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid transparent',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span>{link.icon}</span>
+                    {link.label}
+                  </span>
+                </Link>
               ))}
 
               {!loading && (
@@ -382,27 +386,29 @@ export default function Navbar() {
                       </button>
                     </>
                   ) : (
-                    <a
-                      href="/auth/login"
-                      style={{
-                        padding: '12px 16px',
-                        background: 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
-                        color: '#ffffff',
-                        textDecoration: 'none',
-                        borderRadius: '12px',
-                        fontSize: '14px',
-                        fontWeight: '600',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        textAlign: 'center',
-                        justifyContent: 'center'
-                      }}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span>🔑</span>
-                      Login
-                    </a>
+                    <Link href="/auth/login">
+                      <span
+                        style={{
+                          padding: '12px 16px',
+                          background: 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)',
+                          color: '#ffffff',
+                          textDecoration: 'none',
+                          borderRadius: '12px',
+                          fontSize: '14px',
+                          fontWeight: '600',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          textAlign: 'center',
+                          justifyContent: 'center',
+                          cursor: 'pointer'
+                        }}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span>🔑</span>
+                        Login
+                      </span>
+                    </Link>
                   )}
                 </div>
               )}

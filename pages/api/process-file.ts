@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import fs from 'fs';
-// @ts-expect-error
+// @ts-expect-error: pdf-parse has compatibility issues with current TypeScript version
 import pdf from 'pdf-parse';
-// @ts-ignore: mammoth has no types
 import * as mammoth from 'mammoth';
 import path from 'path';
 import { getMongoDb } from '../../lib/mongodb';
@@ -34,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       fs.mkdirSync(tmpDir, { recursive: true });
     }
 
-    const [fields, files] = await form.parse(req);
+    const [, files] = await form.parse(req);
     const file = Array.isArray(files.file) ? files.file[0] : files.file;
 
     if (!file) {
