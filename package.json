@@ -1,0 +1,32 @@
+{
+  "name": "projectt",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.52.0",
+    "file-saver": "^2.0.5",
+    "formidable": "^3.5.4",
+    "mammoth": "^1.9.1",
+    "mongodb": "^6.17.0",
+    "next": "15.4.1",
+    "pdf-parse": "^1.1.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/formidable": "^3.4.5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.1",
+    "typescript": "^5"
+  }
+}

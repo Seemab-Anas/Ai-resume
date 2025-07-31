@@ -1,0 +1,17 @@
+John Doe
+Software Developer
+
+EXPERIENCE:
+- 3 years of web development experience
+- Proficient in JavaScript, React, Node.js
+- Built responsive web applications
+- Worked with databases and APIs
+
+SKILLS:
+- Frontend: HTML, CSS, JavaScript, React
+- Backend: Node.js, Express, MongoDB
+- Tools: Git, VS Code, npm
+
+EDUCATION:
+- Bachelor's in Computer Science
+- Graduated 2021
